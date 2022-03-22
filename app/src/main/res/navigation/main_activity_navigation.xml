@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_navigation"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.easyfoodapp.fragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/actLoginToHome"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.easyfoodapp.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/actHomeToDetail"
+            app:destination="@id/foodDetailFragment" />
+        <action
+            android:id="@+id/actHomeToBasket"
+            app:destination="@id/basketFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodDetailFragment"
+        android:name="com.example.easyfoodapp.fragment.FoodDetailFragment"
+        android:label="fragment_food_detail"
+        tools:layout="@layout/fragment_food_detail" >
+        <action
+            android:id="@+id/actDetailToBasket"
+            app:destination="@id/basketFragment" />
+        <argument
+            android:name="yemek"
+            app:argType="com.example.easyfoodapp.entity.Yemekler" />
+    </fragment>
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="com.example.easyfoodapp.fragment.BasketFragment"
+        android:label="fragment_basket"
+        tools:layout="@layout/fragment_basket" >
+        <argument
+            android:name="sepeteYemek"
+            app:argType="com.example.easyfoodapp.entity.SepetYemekler" />
+        <action
+            android:id="@+id/actBasketToOkay"
+            app:destination="@id/orderOkayFragment" />
+        <action
+            android:id="@+id/actBasketToHome"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderOkayFragment"
+        android:name="com.example.easyfoodapp.fragment.OrderOkayFragment"
+        android:label="fragment_order_okay"
+        tools:layout="@layout/fragment_order_okay" >
+        <action
+            android:id="@+id/actReturnHome"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

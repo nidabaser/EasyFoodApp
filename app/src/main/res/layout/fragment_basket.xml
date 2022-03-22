@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="fragmentBasket" type="com.example.easyfoodapp.fragment.BasketFragment" />
+        <variable name="basketFoodsAdapter" type="com.example.easyfoodapp.adapter.BasketFoodsAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragment.BasketFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarBasket"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewToolbarBasket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SEPETİNİZ"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbarBasket"
+            app:layout_constraintEnd_toEndOf="@+id/toolbarBasket"
+            app:layout_constraintStart_toStartOf="@+id/toolbarBasket"
+            app:layout_constraintTop_toTopOf="@+id/toolbarBasket" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarBasketPrices"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:background="@color/my_pink_dark"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="TOPLAM FİYAT : "
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbarBasketPrices"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbarBasketPrices"
+            app:layout_constraintVertical_bias="0.471" />
+
+        <TextView
+            android:id="@+id/tv_top_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 ₺"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbarBasketPrices"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/toolbarBasketPrices"
+            app:layout_constraintVertical_bias="0.437" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_basket"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adapter="@{basketFoodsAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/toolbarBasketPrices"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarBasket" />
+
+        <Button
+            android:id="@+id/btnOkay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:text="ONAYLA"
+            android:textColor="@color/my_pink_dark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_top_price"
+            app:layout_constraintTop_toTopOf="@+id/toolbarBasketPrices" />
+
+        <ImageView
+            android:id="@+id/imageViewHome"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/home_img" />
+
+        <TextView
+            android:id="@+id/textViewEmptyBasket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SEPETİNİZ BOŞ :("
+            android:textColor="@color/my_pink_light"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/toolbarBasketPrices"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarBasket" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
