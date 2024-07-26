@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pw_endpoint" translatable="false">https://enduser-sdk.circle.com/v1/w3s/</string>
+    <string name="pw_app_id" translatable="false">72d1198b-48c4-5c01-8836-c2b6c14208c1</string>
+</resources>

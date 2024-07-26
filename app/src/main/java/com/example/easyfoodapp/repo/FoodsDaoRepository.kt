@@ -27,7 +27,7 @@ class FoodsDaoRepository {
     fun tumYemekleriAl() {
         fdaoi.tumYemekler().enqueue(object : Callback<YemeklerYanit> {
             override fun onResponse(call: Call<YemeklerYanit>, response: Response<YemeklerYanit>) {
-                val liste = response.body().yemekler
+                val liste = response.body()?.yemekler ?: emptyList()
                 yemeklerListesi.value = liste
             }
             override fun onFailure(call: Call<YemeklerYanit>, t: Throwable) {}
@@ -42,7 +42,8 @@ class FoodsDaoRepository {
         fdaoi.sepettekiYemekler("nidabaser")
             .enqueue(object : Callback<SepetYemeklerYanit> {
                 override fun onResponse(call: Call<SepetYemeklerYanit>, response: Response<SepetYemeklerYanit>) {
-                    val liste = response.body().sepet_yemekler
+                    val liste = response.body()?.sepet_yemekler ?: emptyList()
+
                     sepetYemeklerListesi.value = liste
                 }
                 override fun onFailure(call: Call<SepetYemeklerYanit>, t: Throwable) {
